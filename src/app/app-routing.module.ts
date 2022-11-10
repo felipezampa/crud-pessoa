@@ -1,5 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditarCidadeComponent } from './cidade/editar-cidade/editar-cidade.component';
+import { InserirCidadeComponent } from './cidade/inserir-cidade/inserir-cidade.component';
+import { ListarCidadeComponent } from './cidade/listar-cidade/listar-cidade.component';
+import { EditarEnderecoComponent } from './endereco/editar-endereco/editar-endereco.component';
+import { InserirEnderecoComponent } from './endereco/inserir-endereco/inserir-endereco.component';
+import { ListarEnderecoComponent } from './endereco/listar-endereco/listar-endereco.component';
+import { EditarEstadoComponent } from './estado/editar-estado/editar-estado.component';
+import { InserirEstadoComponent } from './estado/inserir-estado/inserir-estado.component';
+import { ListarEstadoComponent } from './estado/listar-estado/listar-estado.component';
 import { EditarPessoaComponent } from './pessoa/editar-pessoa/editar-pessoa.component';
 import { InserirPessoaComponent } from './pessoa/inserir-pessoa/inserir-pessoa.component';
 import { ListarPessoaComponent } from './pessoa/listar-pessoa/listar-pessoa.component';
@@ -29,12 +38,55 @@ const routes: Routes = [
   },
   //================================= ENDERECO =================================
   {
-    path: 'endereco',
-    redirectTo: 'endereco/listar'
+    path: 'enderecos',
+    redirectTo: 'enderecos/listar'
   },
-  { path: 'endereco/listar', 
+  {
+    path: 'enderecos/listar',
     component: ListarEnderecoComponent
-  }
+  },
+  {
+    path: 'enderecos/novo',
+    component: InserirEnderecoComponent
+  },
+  {
+    path: 'enderecos/editar/:id',
+    component: EditarEnderecoComponent
+  },
+  //================================= CIDADE =================================
+  {
+    path: 'cidade',
+    redirectTo: 'cidade/listar'
+  },
+  {
+    path: 'cidade/listar',
+    component: ListarCidadeComponent
+  },
+  {
+    path: 'cidade/novo',
+    component: InserirCidadeComponent
+  },
+  {
+    path: 'cidade/editar/:id',
+    component: EditarCidadeComponent
+  },
+  //================================= ESTADO =================================
+  {
+    path: 'estado',
+    redirectTo: 'estado/listar'
+  },
+  {
+    path: 'estado/listar',
+    component: ListarEstadoComponent
+  },
+  {
+    path: 'estado/novo',
+    component: InserirEstadoComponent
+  },
+  {
+    path: 'estado/editar/:id',
+    component: EditarEstadoComponent
+  },
 ];
 
 @NgModule({
