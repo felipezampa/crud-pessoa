@@ -4,6 +4,8 @@ import { EditarCidadeComponent } from './editar-cidade/editar-cidade.component';
 import { InserirCidadeComponent } from './inserir-cidade/inserir-cidade.component';
 import { ListarCidadeComponent } from './listar-cidade/listar-cidade.component';
 import { CidadeService } from './services/cidade.service';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +16,9 @@ import { CidadeService } from './services/cidade.service';
     ListarCidadeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    FormsModule
   ],
   providers: [
     CidadeService
