@@ -55,36 +55,36 @@ const routes: Routes = [
   },
   //================================= CIDADE =================================
   {
-    path: 'cidade',
-    redirectTo: 'cidade/listar'
+    path: 'cidades',
+    redirectTo: 'cidades/listar'
   },
   {
-    path: 'cidade/listar',
+    path: 'cidades/listar',
     component: ListarCidadeComponent
   },
   {
-    path: 'cidade/novo',
+    path: 'cidades/novo',
     component: InserirCidadeComponent
   },
   {
-    path: 'cidade/editar/:id',
+    path: 'cidades/editar/:id',
     component: EditarCidadeComponent
   },
   //================================= ESTADO =================================
   {
-    path: 'estado',
-    redirectTo: 'estado/listar'
+    path: 'estados',
+    redirectTo: 'estados/listar'
   },
   {
-    path: 'estado/listar',
+    path: 'estados/listar',
     component: ListarEstadoComponent
   },
   {
-    path: 'estado/novo',
+    path: 'estados/novo',
     component: InserirEstadoComponent
   },
   {
-    path: 'estado/editar/:id',
+    path: 'estados/editar/:id',
     component: EditarEstadoComponent
   },
 ];

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Estado } from 'src/app/shared/models/estado.model';
+import { EstadoService } from '../services/estado.service';
 
 @Component({
   selector: 'app-inserir-estado',
@@ -6,10 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inserir-estado.component.css']
 })
 export class InserirEstadoComponent implements OnInit {
+  @ViewChild('formEstado') formEstado! : NgForm;
+  estado!: Estado;
 
-  constructor() { }
+  constructor(private estadoService: EstadoService, private router: Router) { }
 
   ngOnInit(): void {
+    this.estado = new Estado();
+  }
+
+  inserir(): void{
+    if (this.formEstado.form.valid){
+      this.estadoService.inserir(this.estado);
+      this.router.navigate(["/estados"]);
+    }
   }
 
 }

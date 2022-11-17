@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cidade } from 'src/app/shared/models/cidade.model';
+import { CidadeService } from '../services/cidade.service';
 
 @Component({
   selector: 'app-listar-cidade',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarCidadeComponent implements OnInit {
 
-  constructor() { }
+  cidades: Cidade[] = [];
+
+  constructor(private cidadeService: CidadeService) { }
 
   ngOnInit(): void {
+    this.cidades = this.listarTodos();
   }
 
+  listarTodos(): Cidade[]{
+    return this.cidadeService.listarTodos();
+  }
+
+  remover($event: any, cidade: Cidade): void{
+    $event.preventDefault();
+    if (confirm(`Deseja realmente remover a cidade ${cidade.nome}`)){
+      this.cidadeService.remover(cidade.id!);
+      this.cidades = this.listarTodos();
+    }
+  }
 }
