@@ -7,6 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { InserirPessoaComponent } from './inserir-pessoa/inserir-pessoa.component';
 import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
+
+import { SharedModule } from '../shared';
+
 @NgModule({
   declarations: [
     ListarPessoaComponent,
@@ -16,7 +21,9 @@ import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot(),
+    SharedModule
   ],
   providers: [
     PessoaService
