@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Pessoa } from 'src/app/shared';
+import { ModalPessoaComponent } from '../modal-pessoa/modal-pessoa.component';
 import { PessoaService } from '../services/pessoa.service';
 
 @Component({
@@ -11,22 +13,27 @@ export class ListarPessoaComponent implements OnInit {
 
   pessoas: Pessoa[] = [];
 
-  constructor(private pessoaService: PessoaService) { }
+  constructor(private pessoaService: PessoaService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.pessoas = this.listarTodos();
   }
 
-  listarTodos(): Pessoa[]{
+  listarTodos(): Pessoa[] {
     return this.pessoaService.listarTodos();
   }
 
-  remover($event: any, pessoa: Pessoa): void{
+  remover($event: any, pessoa: Pessoa): void {
     $event.preventDefault();
     if (confirm(`Deseja realmente remover a pessoa ${pessoa.nome}`)) {
       this.pessoaService.remover(pessoa.id!);
       this.pessoas = this.listarTodos();
     }
+  }
+
+  abrirModalPessoa(pessoa: Pessoa) {
+    const modalRef = this.modalService.open(ModalPessoaComponent);
+    modalRef.componentInstance.pessoa = pessoa;
   }
 
 }

@@ -16,17 +16,19 @@
             <td>{{ pessoa.idade }}</td>
             <td>{{ pessoa.dataNascimento! | mask: 'd0/M0/0000' }}</td>
             <td class="text-center" style="width: 300px">
-                <a href="#" title="Editar" alt="Editar" [routerLink]="['/pessoas/editar', pessoa.id]" class="btn btn-xs btn-info mx-2">
+                <button type="button" class="btn btn-xs btn-info" (click)="abrirModalPessoa(pessoa)">
+                    <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                </button>
+                <a href="#" title="Editar" alt="Editar" [routerLink]="['/pessoas/editar', pessoa.id]"
+                    class="btn btn-xs btn-info mx-2">
                     <i class="fa fa-edit" aria-hidden="true"></i> Editar
                 </a>
-                <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger" (click)="remover($event, pessoa)">
+                <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger"
+                    (click)="remover($event, pessoa)">
                     <i class="fa fa-times" aria-hidden="true"></i> Remover
                 </a>
             </td>
         </tr>
     </tbody>
 </table>
-<a href="#" class="btn btn-primary mx-1" [routerLink]="['/enderecos/listar']">Endereço</a>
-<a href="#" class="btn btn-primary mx-1" [routerLink]="['/cidades/listar']">Cidade</a>
-<a href="#" class="btn btn-primary mx-1" [routerLink]="['/estados/listar']">Estado</a>
 <p *ngIf="pessoas.length== 0">Nenhuma pessoa cadastrada.</p>
