@@ -7,14 +7,16 @@ import { ListarEnderecoComponent } from './listar-endereco/listar-endereco.compo
 import { EditarEnderecoComponent } from './editar-endereco/editar-endereco.component';
 import { InserirEnderecoComponent } from './inserir-endereco/inserir-endereco.component';
 import { SharedModule } from '../shared';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ModalEnderecoComponent } from './modal-endereco/modal-endereco.component'
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
     ListarEnderecoComponent,
     EditarEnderecoComponent,
-    InserirEnderecoComponent
+    InserirEnderecoComponent,
+    ModalEnderecoComponent
   ],
   imports: [
     CommonModule,

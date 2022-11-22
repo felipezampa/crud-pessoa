@@ -14,10 +14,15 @@
             <td>{{ estado.nome }}</td>
             <td>{{ estado.sigla }}</td>
             <td class="text-center" style="width: 300px">
-                <a href="#" title="Editar" alt="Editar" [routerLink]="['/estados/editar', estado.id]" class="btn btn-xs btn-info">
+                <button type="button" class="btn btn-xs btn-info" (click)="abrirModalEstado(estado)">
+                    <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                </button>
+                <a href="#" title="Editar" alt="Editar" [routerLink]="['/estados/editar', estado.id]"
+                    class="btn btn-xs btn-info mx-2">
                     <i class="fa fa-edit" aria-hidden="true"></i> Editar
                 </a>
-                <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger" (click)="remover($event, estado)">
+                <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger"
+                    (click)="remover($event, estado)">
                     <i class="fa fa-times" aria-hidden="true"></i> Remover
                 </a>
             </td>

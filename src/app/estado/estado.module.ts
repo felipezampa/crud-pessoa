@@ -6,6 +6,7 @@ import { EditarEstadoComponent } from './editar-estado/editar-estado.component';
 import { EstadoService } from './services/estado.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ModalEstadoComponent } from './modal-estado/modal-estado.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     InserirEstadoComponent,
     ListarEstadoComponent,
-    EditarEstadoComponent
+    EditarEstadoComponent,
+    ModalEstadoComponent
   ],
   imports: [
     CommonModule,
