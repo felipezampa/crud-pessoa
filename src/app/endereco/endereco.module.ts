@@ -6,8 +6,9 @@ import { EnderecoService } from './services/endereco.service';
 import { ListarEnderecoComponent } from './listar-endereco/listar-endereco.component';
 import { EditarEnderecoComponent } from './editar-endereco/editar-endereco.component';
 import { InserirEnderecoComponent } from './inserir-endereco/inserir-endereco.component';
-
-
+import { SharedModule } from '../shared';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { InserirEnderecoComponent } from './inserir-endereco/inserir-endereco.co
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot(),
+    SharedModule
   ],
   providers: [
     EnderecoService
