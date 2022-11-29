@@ -10,6 +10,7 @@
             <th>Cidade</th>
             <th>Estado</th>
             <th>Residencial</th>
+            <th>Tipo</th>
             <th class="text-center">
                 <a href="#" title="Novo" alt="Novo" [routerLink]="['/enderecos/novo']" class="btn btn-xs btn-success">
                     <i class="fa fa-plus" aria-hidden="true"></i> Novo
@@ -22,9 +23,10 @@
             <td>{{ endereco.complemento }}</td>
             <td>{{ endereco.bairro }}</td>
             <td>{{ endereco.cep! | mask: '00000-000' }}</td>
-            <td>{{ endereco.cidade }}</td>
-            <td>{{ endereco.estado }}</td>
-            <td> {{endereco.residencial! ? "Residencial" : "Comercial"}} </td>
+            <td>{{ endereco.cidade?.nome }}</td>
+            <td>{{ endereco.cidade?.estado?.sigla }}</td>
+            <td>{{ endereco.residencial! ? "Residencial" : "Comercial"}} </td>
+            <td>{{ endereco.tipo! ? endereco.tipo : "Não" }}</td>
             <td class="text-center" style="width: 300px">
                 <button type="button" class="btn btn-xs btn-info" (click)="abrirModalEndereco(endereco)">
                     <i class="fa fa-eye" aria-hidden="true"></i> Ver
