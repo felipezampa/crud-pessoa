@@ -7,6 +7,7 @@ import { CidadeService } from './services/cidade.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ModalCidadeComponent } from './modal-cidade/modal-cidade.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -20,7 +21,8 @@ import { ModalCidadeComponent } from './modal-cidade/modal-cidade.component';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
   ],
   providers: [
     CidadeService

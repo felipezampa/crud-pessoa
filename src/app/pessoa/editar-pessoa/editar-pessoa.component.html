@@ -3,8 +3,8 @@
     <form #formPessoa="ngForm">
         <div class="form-group">
             <label for="nome">Nome:</label>
-            <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="pessoa.nome"
-                #nome="ngModel" minlength="2" required>
+            <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="pessoa.nome" #nome="ngModel"
+                minlength="2" required>
             <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
                 <div [hidden]="!nome.errors?.['required']">Digite o nome da pessoa.</div>
                 <div [hidden]="!nome.errors?.['minlength']">O nome deve conter ao menos 2 caracteres.</div>
@@ -12,7 +12,8 @@
         </div>
         <div class="form-group">
             <label for="idade">Idade:</label>
-            <input type="text" class="form-control" id="idade" name="idade" [(ngModel)]="pessoa.idade" #idade="ngModel" numerico  minimoValidator valorMinimo="18" required>
+            <input type="text" class="form-control" id="idade" name="idade" [(ngModel)]="pessoa.idade" #idade="ngModel"
+                numerico minimoValidator valorMinimo="18" required>
             <div *ngIf="idade.errors && (idade.dirty || idade.touched)" class="alert alert-danger">
                 <div [hidden]="!idade.errors?.['required']"> Digite a idade da pessoa.</div>
                 <div [hidden]="!idade.errors?.['minimo']">Idade deve ser maior ou igual a 18</div>
@@ -20,10 +21,23 @@
         </div>
         <div class="form-group">
             <label for="data-nascimento">Data de Nascimento:</label>
-            <input type="text" class="form-control" id="data-nascimento" name="data-nascimento" [(ngModel)]="pessoa.dataNascimento" #dataNascimento="ngModel" mask="d0/M0/0000" required>
-            <div *ngIf="dataNascimento.errors && (dataNascimento.dirty || dataNascimento.touched)" class="alert alert-danger">
+            <input type="text" class="form-control" id="data-nascimento" name="data-nascimento"
+                [(ngModel)]="pessoa.dataNascimento" #dataNascimento="ngModel" mask="d0/M0/0000" required>
+            <div *ngIf="dataNascimento.errors && (dataNascimento.dirty || dataNascimento.touched)"
+                class="alert alert-danger">
                 <div [hidden]="!dataNascimento.errors?.['required']"> Digite a data de nascimento da pessoa.</div>
             </div>
+        </div>
+        <div class="form-group">
+            <label for="motorista">Cart. Motorista:</label>
+            <input type="radio" class="form-check-input" id="motorista1" name="motorista" [(ngModel)]="pessoa.motorista"
+                #motorista1="ngModel" value="Não"> Não <br />
+            <input type="radio" class="form-check-input" id="motorista2" name="motorista" [(ngModel)]="pessoa.motorista"
+                #motorista2="ngModel" value="A"> A <br />
+            <input type="radio" class="form-check-input" id="motorista3" name="motorista" [(ngModel)]="pessoa.motorista"
+                #motorista3="ngModel" value="B"> B <br />
+            <input type="radio" class="form-check-input" id="motorista4" name="motorista" [(ngModel)]="pessoa.motorista"
+                #motorista4="ngModel" value="AB"> AB <br />
         </div>
         <div class="form-group">
             <button type="button" class="btn btn-primary" (click)="atualizar()" [disabled]="!formPessoa.form.valid">
